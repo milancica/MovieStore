@@ -13,37 +13,37 @@ namespace MovieStore.Repository
 
         public IQueryable<ArticleType> ArticleTypes => _context.ArticleTypes;
 
-        public void CreateArticle(Article b)
+        public void CreateArticle(Article entity)
         {
-            _context.Add(b);
+            _context.Add(entity);
             _context.SaveChanges();
         }
 
-        public void CreateArticleType(ArticleType g)
-        {
-            _context.Add(g);
-            _context.SaveChanges();
-        }
-
-        public void DeleteArticle(Article b)
-        {
-            _context.Remove(b);
-            _context.SaveChanges();
-        }
-
-        public void DeleteArticleType(ArticleType g)
-        {
-            _context.Remove(g);
-            _context.SaveChanges();
-        }
-
-        public void SaveArticle(Article b)
+        public void SaveArticle(Article entity)
         {
             _context.SaveChanges();
         }
 
-        public void SaveArticleType(ArticleType g)
+        public void DeleteArticle(Article entity)
         {
+            _context.Remove(entity);
+            _context.SaveChanges();
+        }
+
+        public void CreateArticleType(ArticleType entity)
+        {
+            _context.Add(entity);
+            _context.SaveChanges();
+        }
+
+        public void SaveArticleType(ArticleType entity)
+        {
+            _context.SaveChanges();
+        }
+
+        public void DeleteArticleType(ArticleType entity)
+        {
+            _context.Remove(entity);
             _context.SaveChanges();
         }
     }

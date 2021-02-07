@@ -72,24 +72,24 @@ namespace MovieStore
             app.UseAuthentication();
             app.UseAuthorization();
 
-            app.UseEndpoints(ep => {
-                ep.MapControllerRoute("ArticleTypepage", "{ArticleType:int}/Page{ArticlePage:int}",
+            app.UseEndpoints(endpoints => {
+                endpoints.MapControllerRoute("ArticleTypepage", "{ArticleType:int}/Page{ArticlePage:int}",
                     new { Controller = "Home", action = "Index" });
 
-                ep.MapControllerRoute("page", "Page{ArticlePage:int}",
+                endpoints.MapControllerRoute("page", "Page{ArticlePage:int}",
                     new { Controller = "Home", action = "Index", ArticlePage = 1 });
 
-                ep.MapControllerRoute("ArticleType", "{ArticleType}",
+                endpoints.MapControllerRoute("ArticleType", "{ArticleType}",
                     new { Controller = "Home", action = "Index", ArticlePage = 1 });
 
-                ep.MapControllerRoute("pagination", "Articles/{ArticlePage:int}",
+                endpoints.MapControllerRoute("pagination", "Articles/{ArticlePage:int}",
                     new { Controller = "Home", action = "Index", ArticlePage = 1 });
 
-                ep.MapDefaultControllerRoute();
-                ep.MapRazorPages();
-                ep.MapBlazorHub();
+                endpoints.MapDefaultControllerRoute();
+                endpoints.MapRazorPages();
+                endpoints.MapBlazorHub();
 
-                ep.MapFallbackToPage("/admin/{*catchall}", "/Admin/Index");
+                endpoints.MapFallbackToPage("/admin/{*catchall}", "/Admin/Index");
             });
 
             SeedData.Seed(app);

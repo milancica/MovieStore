@@ -53,6 +53,5 @@ namespace MovieStore.Controllers
             await signInManager.SignOutAsync();
             return Redirect(returnUrl);
         }
-
     }
 }

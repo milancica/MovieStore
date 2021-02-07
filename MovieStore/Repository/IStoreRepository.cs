@@ -8,11 +8,12 @@ namespace MovieStore.Repository
         IQueryable<Article> Articles { get; }
         IQueryable<ArticleType> ArticleTypes { get; }
 
-        void SaveArticle(Article b);
-        void CreateArticle(Article b);
-        void DeleteArticle(Article b);
-        void SaveArticleType(ArticleType g);
-        void CreateArticleType(ArticleType g);
-        void DeleteArticleType(ArticleType g);
+        void SaveArticle(Article entity);
+        void CreateArticle(Article entity);
+        void DeleteArticle(Article entity);
+
+        void SaveArticleType(ArticleType entity);
+        void CreateArticleType(ArticleType entity);
+        void DeleteArticleType(ArticleType gentity);
     }
 }

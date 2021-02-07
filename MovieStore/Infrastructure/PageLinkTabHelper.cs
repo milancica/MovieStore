@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using MovieStore.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -39,7 +36,7 @@ namespace MovieStore.Infrastructure
         {
             IUrlHelper urlHelper = urlHelperFactory.GetUrlHelper(ViewContext);
             TagBuilder result = new TagBuilder("div");
-            for(int i = 1; i <= PageModel.TotalPages; i++)
+            for (int i = 1; i <= PageModel.TotalPages; i++)
             {
                 TagBuilder tag = new TagBuilder("a");
                 
@@ -50,13 +47,13 @@ namespace MovieStore.Infrastructure
                 {
                     tag.AddCssClass(PageClass);
 
-                    tag.AddCssClass(i == PageModel.CurrentPage
-                    ? PageClassSelected : PageClassNormal);
-
+                    tag.AddCssClass(i == PageModel.CurrentPage ? PageClassSelected : PageClassNormal);
                 }
+
                 tag.InnerHtml.Append(i.ToString());
                 result.InnerHtml.AppendHtml(tag);
             }
+
             output.Content.AppendHtml(result.InnerHtml);
         }
     }

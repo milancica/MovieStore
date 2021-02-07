@@ -11,6 +11,7 @@ namespace MovieStore.Controllers
         private IStoreRepository _storeRepository;
 
         public int PageSize = 4;
+
         public HomeController(IStoreRepository repo) => _storeRepository = repo;
 
         public ViewResult Index(int ArticlePage = 1, int? ArticleType = null)
@@ -23,6 +24,7 @@ namespace MovieStore.Controllers
                     .OrderBy(x => x.ArticleId)
                     .Skip((ArticlePage - 1) * PageSize)
                     .Take(PageSize);
+
             ArticleListViewModel.Articles = Articles;
             ArticleListViewModel.CurrentArticleType = ArticleType;
 

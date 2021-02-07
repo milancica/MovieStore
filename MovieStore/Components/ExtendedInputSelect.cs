@@ -8,7 +8,8 @@ namespace MovieStore.Components
         protected override bool TryParseValueFromString(string value, out TValue result, out string validationErrorMessage)
         {
             Type t = typeof(TValue);
-            if(t == typeof(int))
+
+            if (t == typeof(int))
             {
                 if (long.TryParse(value, out var resultInt))
                 {
@@ -23,7 +24,8 @@ namespace MovieStore.Components
                     validationErrorMessage = $"The selected value {value} is not of type int.";
                     return false;
                 }
-            } else if(t == typeof(long))
+            } 
+            else if (t == typeof(long))
             {
                 if (long.TryParse(value, out var resultLong))
                 {
@@ -38,7 +40,8 @@ namespace MovieStore.Components
                     validationErrorMessage = $"The selected value {value} is not of type long.";
                     return false;
                 }
-            } else
+            } 
+            else
             {
                 return base.TryParseValueFromString(value, out result, out validationErrorMessage);
             }
