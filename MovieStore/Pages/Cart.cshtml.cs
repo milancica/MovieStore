@@ -1,7 +1,6 @@
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using MovieStore.Infrastructure;
 using MovieStore.Models;
 using MovieStore.Repository;
 

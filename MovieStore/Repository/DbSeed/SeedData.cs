@@ -54,7 +54,6 @@ namespace MovieStore.Repository.DbSeed
 
         static List<string> GetTableNames(this DatabaseContext context)
         {
-
             return new List<string>()
             {
                 "Articles", "ArticleTypes", "ArticleArticleTypes"
