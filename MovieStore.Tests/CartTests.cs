@@ -38,7 +38,6 @@ namespace MovieStore.Tests
 
             CartLine[] results = target.Lines.ToArray();
 
-
             Assert.Equal(2, results.Length);
 
             Assert.Equal(11, results[0].Quantity);

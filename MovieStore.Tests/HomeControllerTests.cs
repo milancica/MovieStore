@@ -130,10 +130,9 @@ namespace MovieStore.Tests
             Article[] ArticleArray = result.Articles.ToArray();
 
             PagingInfo pageInfo = result.PagingInfo;
-            Assert.Equal(3, ArticleArray.Length);
-            Assert.Equal(1, ArticleArray[0].ArticleId);
-            Assert.Equal(3, ArticleArray[1].ArticleId);
-            Assert.Equal(4, ArticleArray[2].ArticleId);
+            Assert.Equal(2, ArticleArray.Length);
+            Assert.Equal(2, ArticleArray[0].ArticleId);
+            Assert.Equal(4, ArticleArray[1].ArticleId);
         }
 
         [Fact]
@@ -175,13 +174,9 @@ namespace MovieStore.Tests
                 result?.ViewData?.Model as ArticleListViewModel;
 
             int? res1 = GetPagingInfoCount(target.Index(ArticleType: 1))?.PagingInfo?.TotalItems;
-            int? res2 = GetPagingInfoCount(target.Index(ArticleType: 2))?.PagingInfo?.TotalItems;
-            int? res3 = GetPagingInfoCount(target.Index(ArticleType: 3))?.PagingInfo?.TotalItems;
             int? resAll = GetPagingInfoCount(target.Index(ArticleType: null))?.PagingInfo?.TotalItems;
 
-            Assert.Equal(2, res1);
-            Assert.Equal(2, res2);
-            Assert.Equal(1, res3);
+            Assert.Equal(1, res1);
             Assert.Equal(5, resAll);
         }
 

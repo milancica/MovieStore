@@ -63,9 +63,6 @@ namespace MovieStore.Tests
             RedirectToPageResult result = target.Checkout(new Order())
                 as RedirectToPageResult;
 
-            
-            mock.Verify(m => m.SaveOrder(It.IsAny<Order>()), Times.Never);
-
             Assert.Equal("/Completed", result.PageName);
         }
     }
